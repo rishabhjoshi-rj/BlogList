@@ -6,10 +6,11 @@ var Book = Backbone.Model.extend({
   },
 });
 
-const app = document.getElementById("landing");
+const app = document.getElementById("cards");
 
 const container = document.createElement("div");
 container.setAttribute("class", "row");
+// container.setAttribute("class", "container mt-4");
 
 app.appendChild(container);
 
@@ -131,12 +132,12 @@ var BooksView = Backbone.View.extend({
       img.setAttribute("id", "imgs");
       img.src = book.get("url");
 
-      const h1 = document.createElement("h1");
-      h1.setAttribute("id", "title");
+      const h1 = document.createElement("p");
+      h1.setAttribute("id", "titles");
       h1.textContent = `Title: ${book.get("title")}`;
 
-      const h2 = document.createElement("h1");
-      h2.setAttribute("id", "author");
+      const h2 = document.createElement("p");
+      h2.setAttribute("id", "authors");
       h2.textContent = `Author: ${book.get("author")}`;
 
       card.appendChild(img);
@@ -176,23 +177,6 @@ $(document).ready(function () {
     books.reset();
     books.add(book);
   });
-
-  // var top = document.querySelector("#top");
-  // top.addEventListener("click", (e) => {
-  //   // top.addEventListener("click", (e) => {
-  //   if (e.target.innerHTML == "Add Book") {
-  //     console.log("hello");
-  //   }
-  // });
-
-  // const card = document.createElement("div");
-  // card.setAttribute("class", "card col-sm-12 col-md-6 col-lg-3");
-
-  // const img = document.createElement("IMG");
-  // img.setAttribute("id", "imgs");
-  // img.src = url;
-  //   });
-  // });
 
   top.addEventListener("click", (e) => {
     c = document.querySelector("#cards");
