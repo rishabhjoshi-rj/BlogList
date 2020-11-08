@@ -28,6 +28,7 @@ x.addEventListener("click", (e) => {
     document.querySelector("#cards").style.display = "block";
     e2 = e.target.parentElement.parentElement;
     console.log(e2);
+
     // console.log(e.target.parentElement);
 
     x.style.display = "none";
@@ -120,7 +121,12 @@ var BooksView = Backbone.View.extend({
       card.appendChild(card1);
       card.appendChild(card2);
       card.appendChild(butrj);
+
       count = count + 1;
+      if (count > 0) {
+        console.log(count);
+        $("#headCount").remove();
+      }
       card.setAttribute("id", `card` + count);
 
       container.appendChild(card);
@@ -131,6 +137,7 @@ var BooksView = Backbone.View.extend({
     return this;
   },
 });
+console.log(count);
 
 var booksView = new BooksView();
 
@@ -294,6 +301,8 @@ $(document).ready(function () {
       enlarged.appendChild(cardBig);
 
       document.querySelector("#edit").addEventListener("click", (e) => {
+        // var content = document.querySelector("#h2").childElement.value;
+        // console.log(content);
         console.log("helllllooo");
         $("#edit").hide();
         $("#save").show();
@@ -302,7 +311,9 @@ $(document).ready(function () {
         console.log(document.querySelector("#h1").innerHTML);
         var title = document.querySelector("#h").innerHTML.substring(6);
         var author = document.querySelector("#h1").innerHTML.substring(7);
-        var summary = document.querySelector("#h2").innerHTML.substring(8);
+        var summary = document.querySelector("#h2").innerHTML;
+        console.log(title);
+        console.log(summary);
 
         $("#h").html(
           '<input type="text" class="form-control title-update" value="' +
@@ -314,27 +325,43 @@ $(document).ready(function () {
             author +
             '">'
         );
+     
         $("#h2").html(
-          '<input type="text" class="form-control summary-update" value="' +
+          '<textarea class="form-control summary-update"  rows="8" cols="200" value="' +
             summary +
-            '">'
+            '"></textarea>'
         );
+        // $("#h2").html(
+        //   '<textarea class="form-control summary-update"  rows="8" cols="200">`${summary}`</textarea>'
+        // );
+
+        // <textarea class="form-control summary-update"  rows="8" cols="200" value="'+summary+'">></textarea>
       });
       document.querySelector("#save").addEventListener("click", (e) => {
         console.log("helllllooo");
         $("#save").hide();
         $("#edit").show();
 
-        // document.querySelector("#h").innerHTML.replace(title, $(".author-update").val());
-        // console.log();
+      
         document.querySelector("#h").innerHTML =
           `Title: ` + $(".title-update").val();
 
         document.querySelector("#h1").innerHTML =
           `Author: ` + $(".author-update").val();
 
-        document.querySelector("#h2").innerHTML = $(".summary-update").val();
+     
+        console.log($(".summary-update").val());
+        console.log(
+          document.querySelector(".summary-update").getAttribute("value")
+        );
 
+        if ($(".summary-update").val() == "") {
+          document.querySelector("#h2").innerHTML = document
+            .querySelector(".summary-update")
+            .getAttribute("value");
+        } else {
+          document.querySelector("#h2").innerHTML = $(".summary-update").val();
+        }
         console.log(document.querySelector("#titles").innerHTML.substring(6));
         const a = document.querySelector("#h").innerHTML;
         const b = document.querySelector("#h1").innerHTML;
@@ -368,3 +395,12 @@ $(document).ready(function () {
     }
   });
 });
+if (count === 0) {
+  console.log("aaaaaa");
+  xx = document.querySelector("#counter");
+  const headCount = document.createElement("h2");
+  headCount.setAttribute("id", "headCount");
+  headCount.innerHTML = "No Blogs Added. Add Now !";
+  console.log(xx);
+  xx.appendChild(headCount);
+}
