@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     
-    <!--  <meta charset="UTF-8" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+   
     <script
       src="https://kit.fontawesome.com/a213045a6d.js"
       crossorigin="anonymous"
@@ -21,102 +20,19 @@
       crossorigin="anonymous"
     />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9"> 
     
-    <title>MyBooklist APP</title>
+    <title>MyBlogList APP</title>
 
-    <style>
-      #imgs {
-  margin-left: auto;
-
-  width: 100%;
-  height: 20vh;
-}
-
-#counter h2{
-text-align: center;
-margin-top: 3%;
-font-weight: 200;
-font-size: xx-large;
-font-family: 'Indie Flower', cursive;
-}
-#edit{
-margin-left: 4%;
-}
-#save{
-  margin-left: 4%;
-}
-#heading, #heading2{
-  font-weight :400;
-}
-
-.card {
-  padding: 0;
-  border: 10px striped black;
-   /* rgba(128, 128, 128, 0.733); */
-  /* margin: 20px; */
-  border-width: 5px;
-  margin:40px;
-
-}
-#h,#h1,#blogheading{
-  font-weight:bold;
-  font-size:xx-large;
-}
-#h2{
-  font-size:x-large;
-}
-#cardBig{
-  width:80%;
-  margin-left:12%;
-}
-
-#authors,#titles{
-  font-size:large;
-  font-weight: bold;
-}
-      #btn_back{
-        
-        margin-left:30%;
-
-      }
-      textarea {
-  max-width: 100%;
-}
-      #img3{
-        width: 100%;
-        height:60vh;
-        /* margin-left: 20%; */
-      }
-      .back {
-        margin-left: 0;
-
-      }
-      #bottom img {
-        width: 50%;
-        margin-left: 20%;
-      }
-     
-
-      body {
-    background: url(https://images.unsplash.com/photo-1595113316349-9fa4eb24f884?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80);
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat;
-  background-attachment: fixed;
-  overflow-x: hidden !important;
-}
-              
-  
-      .addbtn {
-        margin-top: 2%;
-        margin-left: 44%;
-      }
-    </style>
+   
   </head>
   <body>
+    <div id='alertdiv' class="container mt-4"></div>
     <section id="landing" class="section">
       <div class="container mt-5">
-        <h1 id="heading" class="display-3 text-center">
+        <h1 id="heading" class="display-4 text-center">
           <i class="fas fa-bolt text-primary"></i> My<span
             class="text-primary"
             >Blog</span
@@ -126,7 +42,7 @@ margin-left: 4%;
         <div id="counter">
 
         </div>
-        <button class="btn btn-info btn-lg addbtn">Add New Blog</button>
+        <center><button  id="addbtn2" class="btn btn-info btn-lg addbtn">Add New Blog</button></center>
 
         <div id="cards" class="container mt-4">
 
@@ -135,7 +51,7 @@ margin-left: 4%;
     </section>
 
     <section id="top">
-      <!-- <button id="back" class="btn btn-success">Back</button> -->
+      
       <div class="container mt-4" id="topcontainer">
         
         <h1 id="heading2" class="display-4 text-center">
@@ -145,8 +61,9 @@ margin-left: 4%;
             >Blog</span
           >Gallery
         </h1>
-
+        
         <form id="book-form">
+           <!-- onsubmit="return false"> -->
           <div class="form-group">
             <label for="title">Title</label>
             <input type="text" id="title" class="form-control">
@@ -164,13 +81,14 @@ margin-left: 4%;
             <label for="url">Image URL</label>
             <input type="text" id="url" placeholder="Paste url for a cover image of blog if available, else a default image will be put."class="form-control">
           </div>
-          <input
+          <!-- <input
             type="submit"
-            value="Add Book"
-            id="addbook"
+            value="Add Blog"
+            id="addnew2"
             class="btn btn-primary btn-block add btn-lg"
-          />
-          <button id="back" class="btn btn-success btn-lg btn-block">Go Back to Homescreen</button>
+          /> -->
+          <button  id="addnew2" type="button" class="btn btn-primary btn-block add btn-lg">Add Blog</button>
+          <button id="back" type="button" class="btn btn-success btn-lg btn-block">Go Back to Homescreen</button>
         </form>
       </div>
       </section>
